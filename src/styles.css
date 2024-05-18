@@ -3,3 +3,5 @@
 body{font: 16px/1.2 system-ui, sans-serif;}
 .container{ max-width: 1200px; margin: auto;}
 .para{ border: 1px solid #000;}
+
+.mb10{ margin-bottom: 10px;}

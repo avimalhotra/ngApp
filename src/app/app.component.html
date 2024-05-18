@@ -1,20 +1,44 @@
 <div class="container">
     <h1>Hello {{title}}</h1>
-    <p>Date: {{date}}</p>
-    <p>{{2+3}}</p>
-    <p>{{2*3}}</p>
-    <p>{{x*3}}</p>
-    <p>{{cars}}, total:{{cars.length}}</p>
-    <p>{{cars.sort()}}</p>
-    <p>{{prices.sort(numSort) }}</p>
-    <p> Car name is {{car.name }} and power is {{car.power}}.</p>
-    <p> Car name is {{car["name"] }}, power is {{car["power"]}} and price is {{car['on-road']}}.</p>
-    <p>{{toReverse("lorem")}}</p>
-    <p>Area is {{area(13,14)}}</p>
-    <!-- <img [src]="src" alt="" width="100" height="100"> -->
-    <button [disabled]="dis">Hello</button>
-    <p [class]="p">Paragraph</p>
-    <p [style]="dark">Paragraph</p>
-    <button (click)="sayHi()">Hello</button> <button (click)="sayBye()">Bye</button> {{name}}
-    <!-- <app-server></app-server> -->
+    
+    <!-- <label>Name: <input type="text" (input)="name=$any($event.target).value" ></label> <output>{{name}}</output> -->
+    <!-- <label>Name: <input type="text"  (input)="updateName($event)"></label> <output>{{name}}</output> -->
+
+    <h2>using ngModel</h2>
+    <div class="mb10"><label>Name: <input type="text" [(ngModel)]="name"></label> <output>{{name}}</output></div>
+    <div class="mb10"><label>Range: <input type="range" value="0" min="0" max="10" [(ngModel)]="range"></label> <output>{{range}}</output></div>
+    <div class="mb10"><label>Check: <input type="checkbox" [(ngModel)]="chk"> </label> <output> {{chk}}</output></div>
+    <div class="mb10">
+        <label><input type="radio" name="gender" [(ngModel)]="gen" value="male"> Male </label>
+        <label><input type="radio" name="gender" [(ngModel)]="gen" value="female"> Female </label>
+        <output>{{gen}}</output>
+    </div>
+    <div class="mb10">
+        <label>City:
+            <select [(ngModel)]="city">
+                <option selected disabled value="">--Choose City---</option>
+                <option>New Delhi</option>
+                <option>Chennai</option>
+            </select>
+        </label>
+        <output> {{city}} </output>
+    </div>
+
+    <h2>ngIf</h2>
+
+   <!--  @if (hybrid) { <p>Hybrid Car</p> }     
+    @if (!hybrid) { <p>Non Hybrid Car</p> }  -->
+
+    @if (hybrid) {
+        <p>Car is hybrid</p>
+    }
+    @else {
+        <p>Car is not hybrid</p>
+    }
+
+    @if (num==0) { <p>Number is zero</p> }
+    @else if (num>0) { <p>Number is greater then zero</p> }
+    @else { <p>Number is less then zero</p> }
+    
+
 </div>
