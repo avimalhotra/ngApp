@@ -1,5 +1,13 @@
 <div class="container">
-    <h1>Hello {{title}}</h1>
+    <!-- <h1 [ngStyle]="{'color':'red', 'font-size':'50px' }">Hello {{title}}</h1> -->
+    <!-- <h1 [ngStyle]="css">Hello {{title}}</h1> -->
+    <h1> Hello <small>{{title | uppercase}}</small></h1>
+
+    <p>{{12345 | currency : 'INR'}}</p>
+    <p>{{ 1716635948716 | date:'shortTime' }}</p>
+    <p> {{ 3.2 | number :'1.0-0' }} </p>
+    <p> {{ .7 | percent}} </p>
+    <p> {{ title | custom  }} </p>
     
     <!-- <label>Name: <input type="text" (input)="name=$any($event.target).value" ></label> <output>{{name}}</output> -->
     <!-- <label>Name: <input type="text"  (input)="updateName($event)"></label> <output>{{name}}</output> -->
@@ -29,16 +37,49 @@
    <!--  @if (hybrid) { <p>Hybrid Car</p> }     
     @if (!hybrid) { <p>Non Hybrid Car</p> }  -->
 
-    @if (hybrid) {
-        <p>Car is hybrid</p>
-    }
-    @else {
-        <p>Car is not hybrid</p>
-    }
+    <!-- <p *ngIf="chk">Yes</p>
+    <p *ngIf="!chk">No</p>
+
+    @if (hybrid) {<p>Car is hybrid</p>}
+    @else {<p>Car is not hybrid</p>}
 
     @if (num==0) { <p>Number is zero</p> }
     @else if (num>0) { <p>Number is greater then zero</p> }
-    @else { <p>Number is less then zero</p> }
-    
+    @else { <p>Number is less then zero</p> } -->
+    <h2>ngFor</h2>
 
+    <!-- <ol>
+        <li *ngFor="let i of cars">{{i}}</li>
+    </ol> -->
+    <!-- <ol>
+        @for (i of cars; track $index){
+            <li>{{$index}} - {{i}}</li>
+        }
+        @empty {
+            <li>No cars found</li>
+        }
+    </ol> -->
+   <!--  @for (i of car | keyvalue; track $index) {
+        <p>{{i.key}} {{i.value}}</p>
+    } -->
+    <!-- <table class="table table-bordered border-primary">
+        <thead class="table-dark"><tr><th>S No</th><th>Name</th> <th>Type</th> <th>Price</th></tr></thead>
+        <tbody>
+            @for (i of data; track i.name ) {
+                <tr><td>{{$index+1}}</td><td>{{i.name}}</td><td>{{i.type}}</td><td>{{i.price}}</td></tr>
+            }
+        </tbody>
+    </table>
+    <pre>@for (i of str; track $index){ {{i}} }</pre> -->
+
+   @switch (day) {
+    @case (0) { <p>day is {{days[day]}}</p> }
+    @case (1) { <p>day is {{days[day]}}</p> }
+    @case (2) { <p>day is {{days[day]}}</p> }
+    @default { <p>Invalid day</p> }
+   }
+
+
+
+    
 </div>
