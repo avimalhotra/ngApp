@@ -10,4 +10,5 @@ export class CustomPipe implements PipeTransform {
 transform(x: string): string {
     return x.charAt(0).toUpperCase() + x.substr(1).toLowerCase();
 } 
+
 } 

@@ -3,21 +3,22 @@ import { RouterOutlet } from '@angular/router';
 // import { ServerComponent } from './server/server.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CustomPipe } from './custom.pipe';
+//import { CustomPipe } from './custom.pipe';
+//import { Login } from './login';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule , CommonModule, CustomPipe /* ServerComponent */ ],
+  imports: [RouterOutlet, FormsModule , CommonModule, /*CustomPipe, ServerComponent */ ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ngApp';
-  name="";
+  //name="";
   //updateName(x:Event){this.name=(x.target as HTMLInputElement).value}
-  range=0;
+  /* range=0;
   chk=true;
   gen="";
   city="";
@@ -38,7 +39,15 @@ export class AppComponent {
   str="lorem ipsum";
   day=1;
   days=["sunday","monday","tuesday"];
-  css={'color':'red','text-align':'center'};
-  
+  css={'color':'red','text-align':'center'}; */
+
+
+  //model=new Login("","","","",false);
+  //onSubmit( data:any){ console.log( data.value ); }
+
+
+  validation={name:"", age:"", pass:"", email:''};
+
+
 
 }
