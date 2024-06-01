@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './server.component.html',
   styleUrl: './server.component.css'
 })
+
 export class ServerComponent {
 
 }
