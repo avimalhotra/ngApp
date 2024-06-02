@@ -8,13 +8,37 @@
         <div class="col-auto"><label for="age" class="form-label">Age </label> </div>
         <div class="col-auto"><input id="age" type="number" min="18" max="35" class="form-control" [formControl]="age" required></div> -->
         
+        
         <div class="col-auto"><label for="mail" class="form-label">Email </label> </div>
-        <div class="col-auto"><input id="mail" pattern="[\w]{1,}\@[\w]{1,}" formControlName="email" type="email" class="form-control" required ></div>
+        <div class="col-auto"><input id="mail" formControlName="email" type="email" class="form-control"></div>
+        <div class="col-auto">
+            <span class="text-danger opacity-50" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.pristine"> Enter Email </span>
+            <span class="text-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.dirty"> Enter Valid Email Id </span>
+            <span class="text-success" *ngIf="!loginForm.get('email')?.invalid && loginForm.get('email')?.dirty"> Email Accepted </span>
+        </div>
+        <div class="col-auto w-100 m-2"></div>
         <div class="col-auto"><label for="age" class="form-label">Age </label> </div>
-        <div class="col-auto"><input id="age" type="number" min="18" max="35" formControlName="age" class="form-control" required></div>
+        <div class="col-auto"><input id="age" type="number" min="18" max="35" formControlName="age" class="form-control" ></div>
+        <div class="col-auto">
+            <span class="text-danger opacity-50" *ngIf="loginForm.get('age')?.hasError('required') && loginForm.get('age')?.pristine"> Enter Age </span>
+            <span class="text-danger" *ngIf="loginForm.get('age')?.invalid && loginForm.get('age')?.dirty"> Enter Valid Age </span>
+            <span class="text-success" *ngIf="!loginForm.get('age')?.invalid && loginForm.get('age')?.dirty"> Age Accepted </span>
+        </div>
+        <div class="col-auto w-100 m-2"></div>
         <div class="col-auto"><label for="pass" class="form-label">Password </label> </div>
-        <div class="col-auto"><input id="pass" type="password" minlength="6" formControlName="pass" class="form-control" required></div>
-        <div class="col-auto"><button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Check</button></div>
+        <div class="col-auto"><input id="pass" type="password" formControlName="pass" class="form-control"></div>
+        <div class="col-auto">
+            <span class="text-danger opacity-50" *ngIf="loginForm.get('pass')?.hasError('required') && loginForm.get('pass')?.pristine"> Enter Password </span>
+            <span class="text-danger" *ngIf="loginForm.get('pass')?.invalid && loginForm.get('pass')?.dirty"> Enter Valid Password </span>
+            <span class="text-success" *ngIf="!loginForm.get('pass')?.invalid && loginForm.get('pass')?.dirty"> Password Accepted </span>
+        </div>
+        <div class="col-auto w-100 m-2"></div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid"> Check </button>
+            <button type="submit" class="btn btn-primary ms-3" (click)="patchVal()"> Patch Values </button>
+            <button type="submit" class="btn btn-primary ms-3" (click)="setVal()"> Set Values</button>
+        </div>
+
         <div class="col-auto w-100 mt-3">Data : {{loginForm.value| json }}, Form Status: {{loginForm.status}}</div>
     </form>
     
