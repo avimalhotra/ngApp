@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -9,5 +10,14 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent {
+  
+  counter=0;
+  @Input() y:string="";  
+  @Output() incVal=new EventEmitter<number>();
+
+  changeValue(){
+    this.counter=this.counter+1;
+    this.incVal.emit(this.counter);
+  }
 
 }
