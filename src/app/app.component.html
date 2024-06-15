@@ -1,6 +1,12 @@
 <div class="container">
-    <h1> Hello <small>{{title }}</small></h1>
-    <p>App Component</p>
-    <p>Counter : {{x}}</p>
-    <app-server [y]="message" (incVal)="showVal($event)"></app-server>
+    <header><h1> Hello <small>{{title }}</small></h1></header>
+    <nav>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="login" routerLinkActive="active">Login</a>
+        <a routerLink="server" routerLinkActive="active">Server</a>
+    </nav>
+    <!-- <main><p>App Component</p></main> -->
+    <hr>
+    <router-outlet></router-outlet>
+    <footer class="bg-dark text-light p-3">&copy; 2024</footer>
 </div>
