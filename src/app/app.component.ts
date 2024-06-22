@@ -20,5 +20,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class AppComponent {
   title = 'ngApp';
-
+  
 }
