@@ -1,0 +1,8 @@
+<p>search works!</p>
+<p>
+    <a class="mx-3" [routerLink]="['/search']" [queryParams]="{name:'swift',fuel:'petrol'}"> Swift Petrol </a>
+    <a class="mx-3" [routerLink]="['/search']" [queryParams]="{name:'swift',fuel:'CNG'}"> Swift CNG </a>
+    <a class="mx-3" [routerLink]="['/search']" [queryParams]="{name:'Baleno',fuel:'petrol'}"> Baleno Petrol </a>
+    <a class="mx-3" [routerLink]="['/search']" [queryParams]="{name:'Grand Vitara',fuel:'hybrid'}"> Grand Vitara Hybrid </a>
+</p>
+<p>Search Query: Car : {{searchItem.name}}, Fuel:  {{searchItem.fuel}}</p>
