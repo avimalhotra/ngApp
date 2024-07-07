@@ -1,5 +1,5 @@
 <div class="container">
-    <header>
+    <header class="p-3">
         <h1> Hello <small>{{title }}</small></h1>
     </header>
     <!-- <nav>
@@ -9,17 +9,11 @@
         <a routerLink="server" routerLinkActive="active">Server</a>
         <a routerLink="search" routerLinkActive="active">Search</a>
     </nav> -->
+    
     <main class="p-3">
-        <button class="btn btn-danger" (click)="changeCounter()">Click</button>
-        <button class="btn btn-danger mx-2" (click)="changeY()">Change y </button>
-        <span> Greet:  {{counter}}</span>
-        <!-- <router-outlet></router-outlet> -->
-        <hr>
-        <button class="btn btn-primary" (click)="double()">Double</button> <span> {{i}}</span>
-        <div class="alert alert-info my-3">
-            <app-home [x]="y"></app-home>
-        </div>
+       <h2>Main</h2>
+        <p>{{data}}</p>
+        <!-- <p>Area is {{area}}</p> -->
     </main>
-    <hr>
     <footer class="bg-dark text-light p-3">&copy; 2024</footer>
 </div>

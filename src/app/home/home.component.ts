@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
 
-  @Input() x:number=0;
+export class HomeComponent {
+    
 
 }
