@@ -11,50 +11,46 @@ import { FormsModule } from '@angular/forms';
 //import { Routes, RouterModule } from '@angular/router';
 //import { RouterOutlet } from '@angular/router';
 //import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AppService } from './app.service';
-import { ErrorService } from './error.service';
-import { TestErrorService } from './test-error.service';
+// import { AppService } from './app.service';
+// import { ErrorService } from './error.service';
+// import { TestErrorService } from './test-error.service';
+import { WebService } from './web.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports:[ FormsModule, CommonModule],
+  imports:[ FormsModule, CommonModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  //providers:[AppService],
-  //providers:[{ provide:AppService, useClass:AppService}],
-
-  //providers:[{ provide:AppService, useClass:ErrorService}],
-  //providers:[{ provide:AppService, useExisting:ErrorService}],
-  //providers:[{ provide:AppService, useValue: {a:"aa", b:"bb"} }],
-  providers:[{ provide:AppService, useFactory:()=>{
-    let test=true;
-
-    if(test){
-      return new TestErrorService()
-    }
-    else{
-      return new ErrorService();
-    }
-
-  }}],
+  providers:[ WebService]
 
 })
 export class AppComponent {
   title = 'ngApp';
 
-  data:any;
-  area:number=0;
+  data:any=[];
 
-  constructor( private service: AppService ){}
+  product:any={};
+
+  constructor( private res: WebService ){  }
 
   ngOnInit(){
-    //this.data=this.service.getData();
-    //this.area=this.service.getArea(2,3);
+
+  //fetch("https://fakestoreapi.com/products").then(i=>i.json()).then(i=>console.table(i)).catch(e=>console.warn(e));
+
+  //console.log( this.res.getProducts() );
     
-    console.log( this.service );
-    
+
+  //this.res.getProducts().forEach(i=>{ console.log(i); })
+  
+
+  //this.res.getProducts().subscribe(i=>this.data.push(i));
+  //this.data=this.data[0];  
+
+  this.res.getProduct().subscribe(i=>{this.product=i})
+  
 
   }
 

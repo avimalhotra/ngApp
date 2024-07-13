@@ -1,6 +1,6 @@
 <div class="container">
     <header class="p-3">
-        <h1> Hello <small>{{title }}</small></h1>
+        <h1> Hello <small>{{ title }}</small></h1>
     </header>
     <!-- <nav>
         <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -9,11 +9,24 @@
         <a routerLink="server" routerLinkActive="active">Server</a>
         <a routerLink="search" routerLinkActive="active">Search</a>
     </nav> -->
-    
     <main class="p-3">
        <h2>Main</h2>
-        <p>{{data}}</p>
-        <!-- <p>Area is {{area}}</p> -->
+        <h3>Array</h3>
+       <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th><th>Image</th><th>Title</th><th>Price</th><th>Description</th><th>Category</th><th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let i of data"><td>{{i.id}}</td><td><img src="{{i.image}}" alt="i.title" width="200"></td><td>{{i.title}}</td><td>{{i.price}}</td><td>{{i.description}}</td><td>{{i.category}}</td><td>{{i.rating.rate}}</td></tr>
+        </tbody>
+       </table>
+       <h3>Object</h3>
+       <ol>
+        <li *ngFor="let i of product | keyvalue">{{i.key}} : {{i.value}}</li>
+       </ol>
+       
     </main>
     <footer class="bg-dark text-light p-3">&copy; 2024</footer>
 </div>
