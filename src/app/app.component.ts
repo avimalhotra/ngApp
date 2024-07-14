@@ -33,10 +33,14 @@ export class AppComponent {
   data:any=[];
 
   product:any={};
+  pid=0;
+  err="";
 
   constructor( private res: WebService ){  }
 
   ngOnInit(){
+
+  // this.res.getCars().subscribe(i=>console.log(i));
 
   //fetch("https://fakestoreapi.com/products").then(i=>i.json()).then(i=>console.table(i)).catch(e=>console.warn(e));
 
@@ -45,14 +49,46 @@ export class AppComponent {
 
   //this.res.getProducts().forEach(i=>{ console.log(i); })
   
-
   //this.res.getProducts().subscribe(i=>this.data.push(i));
   //this.data=this.data[0];  
 
-  this.res.getProduct().subscribe(i=>{this.product=i})
-  
+  //this.res.getProduct(this.pid).subscribe(i=>{this.product=i})
+
+    //this.res.postData();
 
   }
+
+  // checkProduct(){
+  //   this.res.getProduct(this.pid).subscribe(i=>{
+  //     this.product=i;
+  //     if( this.product==null ){ this.err="Invalid Id" }
+  //     else{  this.err="Valid Id" }
+  // });
+  // };
+
+  pin="";
+  pinerr="";
+
+  checkPincode(){
+      this.res.getPincode(this.pin).subscribe(i=>{
+        this.data=i;
+
+        if( this.data[0].Status=="Error"){
+          this.pinerr="No pincode found";
+        }
+        else{
+          this.pinerr="Pincode found";
+          this.data=this.data[0].PostOffice;
+          //this.data=this.data.filter((i:any)=>i.Name.includes("a"));
+          //this.data=this.data.sort((i:any,j:any)=>{if(i.District>j.District){ return 1 }else{ return -1}});
+        }        
+
+      });
+  }
+
+
+
+
 
 
 }
