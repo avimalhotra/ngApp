@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component, ContentChild, ContentChildren, ViewChild, ViewChildren } from '@angular/core';
+//import { CommonModule } from '@angular/common';
+//import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
 //import { HomeComponent } from './home/home.component';
 //import { ChangeDetectionStrategy } from '@angular/core';
 //import { BehaviorSubject } from 'rxjs';
-//import { ServerComponent } from './server/server.component';
+// import { ServerComponent } from './server/server.component';
+//import { ErrorComponent } from "./error/error.component";
+//import { SearchComponent } from "./search/search.component";
 //import { LoginComponent } from './login/login.component';
 //import { SearchComponent } from './search/search.component';
 //import { ErrorComponent } from './error/error.component';
@@ -14,81 +17,35 @@ import { FormsModule } from '@angular/forms';
 // import { AppService } from './app.service';
 // import { ErrorService } from './error.service';
 // import { TestErrorService } from './test-error.service';
-import { WebService } from './web.service';
-import { HttpClientModule } from '@angular/common/http';
+//import { WebService } from './web.service';
+//import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports:[ FormsModule, CommonModule, HttpClientModule],
+  imports: [CardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  providers:[ WebService]
+  styleUrl: './app.component.css'
 
 })
-export class AppComponent {
+export class AppComponent{
   title = 'ngApp';
+  message= "";
 
-  data:any=[];
+  //@ViewChild(CardComponent) cardView!: CardComponent;
+  //@ViewChildren(CardComponent) cardView!: CardComponent;
+ @ContentChild(CardComponent) cardContent! : CardComponent;
+ //@ContentChildren(CardComponent) cardContent : CardComponent | undefined;
 
-  product:any={};
-  pid=0;
-  err="";
-
-  constructor( private res: WebService ){  }
+  //ngAfterViewInit(){console.log(this.cardView)}
+  ngAfterContentInit(){
+    console.log( this.cardContent );
+  }
 
   ngOnInit(){
-
-  // this.res.getCars().subscribe(i=>console.log(i));
-
-  //fetch("https://fakestoreapi.com/products").then(i=>i.json()).then(i=>console.table(i)).catch(e=>console.warn(e));
-
-  //console.log( this.res.getProducts() );
-    
-
-  //this.res.getProducts().forEach(i=>{ console.log(i); })
-  
-  //this.res.getProducts().subscribe(i=>this.data.push(i));
-  //this.data=this.data[0];  
-
-  //this.res.getProduct(this.pid).subscribe(i=>{this.product=i})
-
-    //this.res.postData();
-
+    this.message="Hello There";
   }
-
-  // checkProduct(){
-  //   this.res.getProduct(this.pid).subscribe(i=>{
-  //     this.product=i;
-  //     if( this.product==null ){ this.err="Invalid Id" }
-  //     else{  this.err="Valid Id" }
-  // });
-  // };
-
-  pin="";
-  pinerr="";
-
-  checkPincode(){
-      this.res.getPincode(this.pin).subscribe(i=>{
-        this.data=i;
-
-        if( this.data[0].Status=="Error"){
-          this.pinerr="No pincode found";
-        }
-        else{
-          this.pinerr="Pincode found";
-          this.data=this.data[0].PostOffice;
-          //this.data=this.data.filter((i:any)=>i.Name.includes("a"));
-          //this.data=this.data.sort((i:any,j:any)=>{if(i.District>j.District){ return 1 }else{ return -1}});
-        }        
-
-      });
-  }
-
-
-
-
 
 
 }

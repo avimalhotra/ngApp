@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -11,5 +11,7 @@ import { Input, Output, EventEmitter } from '@angular/core';
 
 export class ServerComponent {
   
+  //@Input() msg:any;
+
 
 }
