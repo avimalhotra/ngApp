@@ -1,4 +1,4 @@
-import { Component, ContentChild, ContentChildren, ViewChild, ViewChildren } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 //import { CommonModule } from '@angular/common';
 //import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
@@ -30,22 +30,26 @@ import { CardComponent } from './card/card.component';
 
 })
 export class AppComponent{
-  title = 'ngApp';
-  message= "";
+  
+    title = 'ngApp';
+    
+    x=signal(2);
+    y=signal(5);
 
-  //@ViewChild(CardComponent) cardView!: CardComponent;
-  //@ViewChildren(CardComponent) cardView!: CardComponent;
- @ContentChild(CardComponent) cardContent! : CardComponent;
- //@ContentChildren(CardComponent) cardContent : CardComponent | undefined;
+    constructor(){
+        effect(()=>{
+          console.log( this.x() );
+        });
+    }
 
-  //ngAfterViewInit(){console.log(this.cardView)}
-  ngAfterContentInit(){
-    console.log( this.cardContent );
-  }
 
-  ngOnInit(){
-    this.message="Hello There";
-  }
+    change(){ this.x.set(10); }
+
+    double(){ this.x.update(i=>i+i); this.y.update(i=>i+i)  }
+
+    ngOnInit(){
+      console.log( this.x(), this.y() );
+    }
 
 
 }

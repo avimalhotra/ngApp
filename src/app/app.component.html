@@ -1,6 +1,6 @@
 <div class="container">
     <header class="p-3">
-        <h1>Hello <small>{{ title }}</small></h1>
+        <h1>Hello, <small>{{ title }}</small></h1>
     </header>
     <!-- <nav>
         <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -11,19 +11,12 @@
     </nav> -->
     <main class="p-3">
        <h2>Main</h2>
-       <hr>
-       <!-- <app-server [msg]="message"></app-server> -->
-        <!-- <app-server></app-server> -->
-        <!-- <app-card [msg]="message">
-            <h2>Card Component</h2>
-            <p>Card text 1</p> 
-            <blockquote>{{message}}</blockquote>
-        </app-card> -->
-        <app-card>
-            <h2>Card Component</h2>
-            <p>Card text 1</p> 
-            <p>Card text 2</p> 
-        </app-card>
+
+       <!-- <button class="btn btn-outline-primary" (click)="double()">Change</button> {{x}} -->
+
+       <button class="btn btn-primary me-3" (click)="change()">Change</button>
+       <button class="btn btn-primary" (click)="double()">Double</button>
+       <p> x is {{x() }} and y is {{y()}} </p>
         
     </main>
     <footer class="bg-dark text-light p-3">&copy; 2024</footer>
