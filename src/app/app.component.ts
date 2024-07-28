@@ -1,7 +1,7 @@
-import { Component, effect, signal } from '@angular/core';
-//import { CommonModule } from '@angular/common';
+import { Component, effect } from '@angular/core';
+import { CommonModule } from '@angular/common';
 //import { FormsModule } from '@angular/forms';
-import { CardComponent } from './card/card.component';
+//import { CardComponent } from './card/card.component';
 //import { HomeComponent } from './home/home.component';
 //import { ChangeDetectionStrategy } from '@angular/core';
 //import { BehaviorSubject } from 'rxjs';
@@ -17,39 +17,35 @@ import { CardComponent } from './card/card.component';
 // import { AppService } from './app.service';
 // import { ErrorService } from './error.service';
 // import { TestErrorService } from './test-error.service';
-//import { WebService } from './web.service';
-//import { HttpClientModule } from '@angular/common/http';
+import { WebService } from './web.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CardComponent],
+  imports: [HttpClientModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-
+  styleUrl: './app.component.css',
+  providers:[WebService]
 })
 export class AppComponent{
   
     title = 'ngApp';
+
+    x=3;
     
-    x=signal(2);
-    y=signal(5);
+    res:any=[];
 
-    constructor(){
-        effect(()=>{
-          console.log( this.x() );
-        });
-    }
-
-
-    change(){ this.x.set(10); }
-
-    double(){ this.x.update(i=>i+i); this.y.update(i=>i+i)  }
+    constructor(private http:WebService){}
 
     ngOnInit(){
-      console.log( this.x(), this.y() );
-    }
+      this.http.getCars().subscribe(i=>{
+        this.res=i;
+      });
 
+      
+    }
+  
 
 }
