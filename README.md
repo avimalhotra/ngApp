@@ -1,6 +1,6 @@
 # Angular 17 Application 
 
-Angular 17 Applicatiob by [Avinash Malhotra](https://github.com/avimalhotra) version 17.3.3.
+Angular 17 Application by [Avinash Malhotra](https://github.com/avimalhotra) version 17.3.3.
 
 ## Development server
 
