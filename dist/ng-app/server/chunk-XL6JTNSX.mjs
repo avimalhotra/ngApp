@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{A as r,C as a,E as d,H as m,h as s,ma as l,s as c,t as p,z as o}from"./chunk-SVBLI4AO.mjs";var g=(()=>{let t=class t{constructor(e){this.route=e}ngOnInit(){this.route.params.subscribe(e=>{this.x=e.id})}};t.\u0275fac=function(i){return new(i||t)(p(l))},t.\u0275cmp=s({type:t,selectors:[["app-login"]],standalone:!0,features:[m],decls:4,vars:1,template:function(i,u){i&1&&(o(0,"p"),a(1,"login works!"),r(),o(2,"p"),a(3),r()),i&2&&(c(3),d(" Login id is ",u.x,""))}});let n=t;return n})();export{g as a};
