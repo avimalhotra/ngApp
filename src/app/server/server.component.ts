@@ -11,7 +11,8 @@ import { Input } from '@angular/core';
 
 export class ServerComponent {
   
-  //@Input() msg:any;
+  //@Input({alias:'message'}) msg:any;
+  @Input() msg:any;
 
 
 }

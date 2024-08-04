@@ -19,7 +19,7 @@ export class LoginComponent {
           
           this.x=p['id'];
           //this.x=this.route.snapshot.params['id'];
-          console.log( this.x );
+
       })
   }
 

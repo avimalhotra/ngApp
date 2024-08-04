@@ -1,9 +1,9 @@
 :disabled{ cursor: not-allowed !important; pointer-events:fill !important;}
 
-
 nav{
     padding: 10px;
     background: #333;
+    color: #fff;
 }
 nav a{
     text-decoration: none;
@@ -11,7 +11,7 @@ nav a{
     padding: .5rem 1rem;
     border: 1px solid ;
     margin-right: 1rem;
-    color: #ddd;
+    color: inherit;
 }
 nav a.active{
     background: #ddd;

@@ -12,12 +12,12 @@ export const routes: Routes = [
     { path:"", component:HomeComponent, pathMatch:"full", title:"Home "},
     { path:"search", component:SearchComponent, title:"Search" },
 
-    // { path:"login", component:LoginComponent, title:"Login", canActivate:[authGuard] },
+     //{ path:"login", component:LoginComponent, title:"Login", canActivate:[authGuard] },
     { path:"login", title:"Login", loadComponent: ()=> import('./login/login.component').then(m=>m.LoginComponent), canDeactivate:[logOutGuard]},
 
     { path:"login/:id", component:LoginComponent, title:"Login ID" },
 
-    { path:"product", component:ProductComponent, title:"Product", canActivateChild:[authGuard] ,children: [
+    { path:"product", component:ProductComponent, title:"Product", canActivateChild:[authGuard], children: [
         {path:"p1", component: ServerComponent, title:"Product p1"},
         { path:"p2", component: LoginComponent, title:"Product p2"}
     ] },
